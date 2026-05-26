@@ -1,195 +1,199 @@
 import time
 import os
 from colorama import Fore, Style, init
+
 ti = 1
 init()
 
-with open("nomes.txt", "r", encoding="utf-8") as arquivo:
-    lista = [linha.strip() for linha in arquivo]
+with open("names.txt", "r", encoding="utf-8") as file:
+    password_list = [line.strip() for line in file]
 
 while True:
-    password = input(f"{Fore.LIGHTRED_EX}Senha: {Style.RESET_ALL}")
-    
-    if password in lista:
+    password = input(f"{Fore.LIGHTRED_EX}Password: {Style.RESET_ALL}")
+
+    if password in password_list:
         print(".", end="")
         time.sleep(0.2)
-        print(".", end="" )
+        print(".", end="")
         time.sleep(0.2)
         print(".", end="")
         time.sleep(1)
+
         os.system("cls")
         print("==============================")
-        print(f"{Fore.LIGHTGREEN_EX}Bem Vindo!{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTGREEN_EX}Welcome!{Style.RESET_ALL}")
         print("==============================")
-        
+
         var = 111
         break
     else:
-        print("Erro. Senha incorreta")
+        print("Error. Incorrect password.")
 
 if var == 111:
-   
-   while True:
-    print("Opção 1: Ver Senha")
 
-    print("Opção 2: Calculo")
+    while True:
+        print("Option 1: View Password")
+        print("Option 2: Calculator")
+        print("Option 3: My IP (IPv4)")
+        print("Option 4: Start system program")
+        print("Option 5: Open third-party app")
+        print("Option 6: Exit")
 
-    print("Opção 3: Meu ip (Ipv4)")
-
-    print("Opção 4: Começar programa do sistema")
-
-    print("Opção 5: Abrir App de terceiros")
-
-    print("Opção 6: Sair.")
-
-    print("==============================")
-
-    try:
-      opt = int(input("Insira uma opção: "))
-      time.sleep(0.3)
-
-    except ValueError:
-      print("Erro. Use apenas numeros!")
-      time.sleep(1)
-      os.system("cls")
-      continue
-
-    if opt == 1:
-       os.system("cls")
-       print("==============================")
-       print(f"Sua senha é {Fore.GREEN}{password}{Style.RESET_ALL}")
-       print("==============================")
-       time.sleep(1)
-
-    elif opt == 2:
-       while True:
-        
         print("==============================")
-        operator = input(f"Que {Fore.LIGHTGREEN_EX}operador{Style.RESET_ALL} deseja utilizar?: ")
-        print("==============================")
-        time.sleep(0.2)
 
-        if operator == "+":
-           num1 = int(input("Numero 1: "))
-           num2 = int(input("Numero 2: "))
-           os.system("cls")
-           print("==============================")
-           print(f"Resultado: {Fore.YELLOW}{num1 + num2}{Style.RESET_ALL}")
-           print("==============================")
-           time.sleep(1)
-           break
+        try:
+            opt = int(input("Enter an option: "))
+            time.sleep(0.3)
 
-        elif operator == "/":
-           num1 = int(input("Numero 1: "))
-           num2 = int(input("Numero 2: "))
+        except ValueError:
+            print("Error. Use numbers only!")
+            time.sleep(1)
+            os.system("cls")
+            continue
 
-           if num2 == 0:
-              print("Erro, Não é possivel dividir por zero!")
-              time.sleep(1)
-              os.system("cls")
-              continue
+        if opt == 1:
+            os.system("cls")
+            print("==============================")
+            print(f"Your password is {Fore.GREEN}{password}{Style.RESET_ALL}")
+            print("==============================")
+            time.sleep(1)
 
-           os.system("cls")
+        elif opt == 2:
+            while True:
 
-           print("==============================")
-           print(f"Resultado: {Fore.YELLOW}{num1 / num2}{Style.RESET_ALL}")
-           print("==============================")
+                print("==============================")
+                operator = input(
+                    f"Which {Fore.LIGHTGREEN_EX}operator{Style.RESET_ALL} do you want to use?: "
+                )
+                print("==============================")
+                time.sleep(0.2)
 
-           time.sleep(1)
-           break
+                if operator == "+":
+                    num1 = int(input("Number 1: "))
+                    num2 = int(input("Number 2: "))
 
-        elif operator == "*":
-           num1 = int(input("Numero 1: "))
-           num2 = int(input("Numero 2: "))
-           os.system("cls")
-           print("==============================")
-           print(f"Resultado: {Fore.YELLOW}{num1 * num2}{Style.RESET_ALL}")
-           print("==============================")
-           time.sleep(1)
-           break
+                    os.system("cls")
+                    print("==============================")
+                    print(f"Result: {Fore.YELLOW}{num1 + num2}{Style.RESET_ALL}")
+                    print("==============================")
+                    time.sleep(1)
+                    break
 
-        elif operator == "-":
-           num1 = int(input("Numero 1: "))
-           num2 = int(input("Numero 2: "))
-           os.system("cls")
-           print("==============================")
-           print(f"Resultado: {Fore.YELLOW}{num1 - num2}{Style.RESET_ALL}")
-           print("==============================")
-           time.sleep(1)
-           break
-           
+                elif operator == "/":
+                    num1 = int(input("Number 1: "))
+                    num2 = int(input("Number 2: "))
+
+                    if num2 == 0:
+                        print("Error. Division by zero is not possible!")
+                        time.sleep(1)
+                        os.system("cls")
+                        continue
+
+                    os.system("cls")
+                    print("==============================")
+                    print(f"Result: {Fore.YELLOW}{num1 / num2}{Style.RESET_ALL}")
+                    print("==============================")
+                    time.sleep(1)
+                    break
+
+                elif operator == "*":
+                    num1 = int(input("Number 1: "))
+                    num2 = int(input("Number 2: "))
+
+                    os.system("cls")
+                    print("==============================")
+                    print(f"Result: {Fore.YELLOW}{num1 * num2}{Style.RESET_ALL}")
+                    print("==============================")
+                    time.sleep(1)
+                    break
+
+                elif operator == "-":
+                    num1 = int(input("Number 1: "))
+                    num2 = int(input("Number 2: "))
+
+                    os.system("cls")
+                    print("==============================")
+                    print(f"Result: {Fore.YELLOW}{num1 - num2}{Style.RESET_ALL}")
+                    print("==============================")
+                    time.sleep(1)
+                    break
+
+                else:
+                    os.system("cls")
+                    print("==============================")
+                    print(f"{Fore.RED}Error!{Style.RESET_ALL}")
+                    print("==============================")
+                    time.sleep(1)
+
+        elif opt == 3:
+            os.system("cls")
+            print("=============================")
+            os.system("ipconfig")
+            print("=============================")
+            time.sleep(2)
+
+        elif opt == 4:
+
+            opened = str(input("Enter a program: "))
+            os.system("cls")
+            print("=================================")
+            os.system(f"start {opened}")
+            print("=================================")
+
+        elif opt == 5:
+
+            os.system("cls")
+            print(
+                Fore.RED
+                + "If the app name is incorrect, the program will close!"
+                + Style.RESET_ALL
+            )
+            time.sleep(1.5)
+
+            app = input("APP: ")
+
+            if not app.lower().endswith(".exe"):
+                app += ".exe"
+
+            while ti < 6:
+
+                ti += 1
+                os.system("cls")
+
+                print("Starting.", end="\r")
+                time.sleep(0.15)
+
+                print("Starting..", end="\r")
+                time.sleep(0.15)
+
+                print("Starting...", end="\r")
+                time.sleep(0.15)
+
+                if ti == 3:
+                    break
+
+            ti = 1
+
+            os.system("cls")
+            os.startfile(app)
+
+            time.sleep(0.5)
+            print(Fore.LIGHTBLUE_EX + "Application started!" + Style.RESET_ALL)
+
+            time.sleep(3.5)
+            os.system("cls")
+
+        elif opt == 6:
+            os.system("cls")
+            print("===")
+            print("...")
+            print("===")
+            time.sleep(1)
+            exit()
+
         else:
-           os.system("cls")
-           print("==============================")
-           print(f"{Fore.RED}Error!{Style.RESET_ALL}")
-           print("==============================")
-           time.sleep(1)
-
-    elif opt == 3:
-       os.system("cls")
-       print("=============================")
-       os.system("ipconfig")
-       print("=============================")
-       time.sleep(2)
-
-    elif opt == 4:
-      
-      opened = str(input("Insira um programa: "))
-      os.system("cls")
-      print("=================================")
-      os.system(f"start {opened}")
-      print("=================================")
-
-    elif opt == 5:
-       
-       os.system("cls")
-       print(Fore.RED + "Caso o app esteja incorreto o programa ira fechar!" + Style.RESET_ALL)
-       time.sleep(1.5)
-       app = input("APP: ")
-
-       if not app.lower().endswith(".exe"):
-         app += ".exe"
-
-       while ti < 6:
-       
-          ti += 1
-          os.system("cls")
-          
-          print(f"Iniciando.", end="\r")
-          time.sleep(0.15)
-       
-          print(f"Iniciando..", end="\r")
-          time.sleep(0.15)
-       
-          print(f"Iniciando...", end="\r")
-          time.sleep(0.15)
-       
-          if ti == 3:
-             break
-          
-       ti = 1
-
-       os.system("cls")
-       os.startfile(app)
-       time.sleep(0.5)
-       print(Fore.LIGHTBLUE_EX + "Aplicativo iniciado!" + Style.RESET_ALL)
-       time.sleep(3.5)
-       os.system("cls")
-          
-    
-    elif opt == 6:
-       os.system("cls")
-       print("===")
-       print("...")
-       print("===")
-       time.sleep(1)
-       exit()
-    
-    else:
-       os.system("cls")
-       print("=====================")
-       print(f"{Fore.RED}Erro, Opção Invalida!{Style.RESET_ALL}")
-       print("=====================")
-       time.sleep(1)
-      
-   
+            os.system("cls")
+            print("=====================")
+            print(f"{Fore.RED}Error, invalid option!{Style.RESET_ALL}")
+            print("=====================")
+            time.sleep(1)
